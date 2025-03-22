@@ -1,25 +1,27 @@
 import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 
+dotenv.config();
+
 const app = express();
+const PORT = process.env.PORT || 5000;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files from the React app
+app.use(cors());
+app.use(express.json());
+
+// Serve frontend
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-// API route (just for demonstration)
-app.get("/api", (req, res) => {
- res.json({ message: "Hello from Express!" });
-});
-
-// Catch-all handler to send back the index.html for any non-API route
 app.get("*", (req, res) => {
- res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
+ res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
- console.log(`Server running on port ${PORT}`);
+ console.log(`Server is running on port ${PORT}`);
 });
