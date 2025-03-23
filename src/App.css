@@ -175,3 +175,192 @@ a:hover {
   padding: 8px 16px;
  }
 }
+
+/* פרויקטים  */
+/* Projects Section */
+.projectsSection {
+ padding: 40px 20px;
+ background-color: #f9f9f9;
+ text-align: center;
+}
+
+.projectsSection h2 {
+ font-size: 2.5rem;
+ margin-bottom: 30px;
+ color: #007bff;
+}
+
+/* Projects Grid */
+.projects-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 20px;
+ padding: 20px;
+}
+
+/* Project Card */
+.projectCard {
+ background: #fff;
+ border-radius: 10px;
+ height: 500px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ overflow: hidden;
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectCard:hover {
+ transform: translateY(-10px);
+ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Image */
+.projectImage {
+ width: 100%;
+ height: 250px;
+ object-fit: cover;
+ border-bottom: 2px solid #007bff;
+}
+
+/* Project Title */
+.projectCard h3 {
+ font-size: 1.5rem;
+ margin: 0;
+ height: 50px;
+ color: #333;
+}
+
+/* Project Description */
+.projectCard p {
+ font-size: 1.1rem;
+ color: #555;
+ padding: 0 20px;
+ line-height: 1.6;
+}
+
+/* Project Link */
+.projectLink {
+ display: inline-block;
+ margin: 20px;
+ padding: 10px 20px;
+ background-color: #007bff;
+ color: #fff;
+ text-decoration: none;
+ border-radius: 5px;
+ font-size: 1rem;
+ transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.projectLink:hover {
+ background-color: #005bb5;
+ transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .projectsSection h2 {
+  font-size: 2rem;
+ }
+
+ .projectCard h3 {
+  font-size: 1.5rem;
+ }
+
+ .projectCard p {
+  font-size: 1rem;
+ }
+
+ .projectLink {
+  font-size: 0.9rem;
+  padding: 8px 16px;
+ }
+}
+
+/* skills */
+
+.skills li {
+ font-size: 22px;
+}
+
+/* קונטיינר expereince */
+.experience-container {
+ padding: 20px;
+ font-family: Arial, sans-serif;
+ background-color: #f8f9fa;
+ border-radius: 8px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* כותרות */
+.experience-heading,
+.education-heading {
+ color: #2c3e50;
+ font-size: 24px;
+ margin-bottom: 10px;
+ font-weight: bold;
+}
+
+/* פריטים בתוך החוויה וההשכלה */
+.experience-section,
+.education-section {
+ margin-bottom: 30px;
+}
+
+.experience-list,
+.education-list {
+ list-style-type: none;
+ padding: 0;
+}
+
+.experience-item,
+.education-item {
+ margin-bottom: 20px;
+ padding: 10px;
+ background-color: #fff;
+ border-radius: 8px;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-title,
+.course-title {
+ font-size: 18px;
+ font-weight: bold;
+ color: #2980b9;
+}
+
+.job-duration {
+ font-size: 22px;
+ color: #7f8c8d;
+}
+
+.job-details {
+ margin-top: 10px;
+}
+
+.job-details li {
+ margin-bottom: 5px;
+ font-size: 18px;
+ color: #34495e;
+}
+
+/* הוספת צבעים לעיצוב */
+.education-item {
+ background-color: #ecf0f1;
+}
+
+.course-details li {
+ font-size: 18px;
+ color: #34495e;
+}
+
+/* שיפור עיצוב תיבות והצללות */
+.experience-item:hover,
+.education-item:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item strong,
+.education-item strong {
+ color: #2980b9;
+}
