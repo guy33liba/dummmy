@@ -20,6 +20,21 @@ const Header = () => {
      <li>
       <Link to="/projects/memory">משחק זיכרון</Link>
      </li>
+     <li>
+      <Link to="/projects/memory">מערכת ניהול מלאי</Link>
+     </li>
+     <li>
+      <Link to="/projects/memory">בלוג אישי</Link>
+     </li>
+     <li>
+      <Link to="/projects/memory">מערכת הזמנות אונליין</Link>
+     </li>
+     <li>
+      <Link to="/projects/memory">ניהול משימות</Link>
+     </li>
+     <li>
+      <Link to="/projects/memory">מערכת הצבעות</Link>
+     </li>
     </ul>
    </nav>
   </header>
