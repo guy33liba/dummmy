@@ -46,7 +46,7 @@ const projects = [
   name: "ניהול משימות",
   description: "אפליקציה לניהול משימות.",
   link: "#",
-  image: "/todo.jpg",
+  image: "/tasks.jpg",
  },
  {
   id: 8,

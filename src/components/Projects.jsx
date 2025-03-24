@@ -1,5 +1,6 @@
 import React from "react";
 import projects from "./projectsData";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
  return (
@@ -11,9 +12,9 @@ const Projects = () => {
       <img src={project.image} alt={project.name} className="projectImage" />
       <h3>{project.name}</h3>
       <p>{project.description}</p>
-      <a href={project.link} className="projectLink">
+      <Link to={project.link} className="projectLink">
        צפה בפרויקט
-      </a>
+      </Link>
      </div>
     ))}
    </div>
