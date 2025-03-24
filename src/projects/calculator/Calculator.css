@@ -1,93 +1,89 @@
-/* Calculator.css */
+/* General setup for the calculator container */
 .calculatorContainer {
+ background-color: #2e3b4e; /* Dark blue background */
+ border-radius: 15px;
+ padding: 15px; /* Reduced padding */
+ width: 300px; /* Smaller width */
+ position: absolute;
+ right: 40%;
+ top: 25%;
  display: flex;
  flex-direction: column;
+ justify-content: flex-start;
  align-items: center;
- background-color: #f4f4f9;
- padding: 20px;
- border-radius: 10px;
- box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
- width: 300px;
- margin: 0 auto;
- font-family: "Arial", sans-serif;
+ box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
- font-size: 32px;
- color: #333;
- margin-bottom: 20px;
+/* Title of the calculator */
+.calculatorContainer h1 {
+ font-size: 30px; /* Reduced title size */
+ color: #fff; /* White color for the title */
+ margin-left: 30px; /* Reduced margin */
+ margin-bottom: 15px;
 }
 
+/* Screen area where the current and previous calculations are displayed */
 .screen {
+ background-color: #f0f1f6; /* Soft light gray background */
  width: 100%;
- background-color: #fff;
- padding: 20px;
- border-radius: 5px;
- box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- margin-bottom: 20px;
+ height: 80px; /* Smaller screen height */
+ border: 1px solid #ccc; /* Light border */
+ border-radius: 8px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ font-size: 25px; /* Smaller font size */
+ padding: 8px;
  text-align: right;
- font-size: 28px;
- color: #333;
 }
 
 .screen div {
- margin: 5px 0;
+ color: #333; /* Dark text for better readability */
 }
 
+/* Container for the calculator buttons */
 .numbersContainer {
  display: grid;
- grid-template-columns: repeat(4, 1fr);
- gap: 10px;
+ grid-template-columns: repeat(4, 1fr); /* 4 columns for the buttons */
+ gap: 8px; /* Reduced gap between buttons */
  width: 100%;
+ margin-top: 15px;
 }
 
-.numbers {
- background-color: #5f6368;
- border: none;
- color: white;
- font-size: 24px;
- padding: 20px;
- border-radius: 10px;
+/* Button styling */
+.calculatorContainer .numbers {
+ font-size: 24px; /* Smaller font size */
+ width: 70px; /* Reduced button width */
+ height: 70px; /* Reduced button height */
+ background-color: #fff; /* White buttons */
+ color: #333; /* Dark text */
+ border: 1px solid #ddd; /* Light border */
+ border-radius: 8px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
  cursor: pointer;
- transition: background-color 0.3s ease;
+ transition: background-color 0.3s, transform 0.2s;
 }
 
-.numbers:hover {
- background-color: #4e5357;
+/* Hover effect for buttons */
+.calculatorContainer .numbers:hover {
+ background-color: #88c9f9; /* Soft blue background */
+ color: #fff; /* White text */
 }
 
-.numbers:active {
- background-color: #333;
- transform: scale(0.95);
+/* Active button effect */
+.calculatorContainer .numbers:active {
+ transform: scale(0.95); /* Slight shrink when clicked */
 }
 
-button:focus {
+/* Button for the operator (like +, -, *, etc.) */
+.calculatorContainer .numbers:focus {
  outline: none;
 }
 
-button:active {
- transform: scale(0.98);
-}
-
-/* Special button styles */
-button:disabled {
- background-color: #d3d3d3;
- color: #a1a1a1;
-}
-
-button:nth-child(1),
-button:nth-child(4),
-button:nth-child(7),
-button:nth-child(10),
-button:nth-child(13) {
- background-color: #ff7043;
- color: white;
-}
-
-button:nth-child(1):hover,
-button:nth-child(4):hover,
-button:nth-child(7):hover,
-button:nth-child(10):hover,
-button:nth-child(13):hover {
- background-color: #e64a19;
+/* Buttons for the operators (+, -, *, etc.) */
+.calculatorContainer .numbers:active {
+ background-color: #e94e77; /* Soft red background when pressed */
+ color: #fff; /* White text when active */
 }
