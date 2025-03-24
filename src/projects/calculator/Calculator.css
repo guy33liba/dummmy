@@ -68,7 +68,7 @@
 
 /* Hover effect for buttons */
 .calculatorContainer .numbers:hover {
- background-color: #88c9f9; /* Soft blue background */
+ background-color: #42474b81; /* Soft blue background */
  color: #fff; /* White text */
 }
 
