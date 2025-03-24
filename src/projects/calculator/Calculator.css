@@ -1,0 +1,26 @@
+.calculatorContainer {
+}
+.calculatorContainer h1 {
+ text-align: center;
+}
+
+.numbersContainer {
+ width: 400px;
+ height: 400px;
+ display: flex;
+ flex-wrap: wrap;
+
+ position: relative;
+ right: 40%;
+ top: 5vh;
+}
+.calculatorContainer .numbers {
+ font-size: 30px;
+ width: 100px;
+ height: 100px;
+ background-color: white;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+}

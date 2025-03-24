@@ -33,7 +33,10 @@ const Header = () => {
       <Link to="/projects/ecommerce">מערכת הזמנות אונליין</Link>
      </li>
      <li>
-      <Link to="voting">מערכת הצבעות</Link>
+      <Link to="/projects/voting">מערכת הצבעות</Link>
+     </li>
+     <li>
+      <Link to="/projects/calculator">מחשבון</Link>
      </li>
     </ul>
    </nav>

@@ -1,19 +1,21 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Experience from "./components/Experience";
-import Contact from "./components/Contact";
-import Projects from "./components/Projects";
-import TodoApp from "./projects/todoApp/Todoapp";
-import PortfolioProject from "./projects/portfolioProject/PortfolioProject";
-import MemoryGame from "./projects/memoryGame/MemoryGame";
-import Ecommerce from "./projects/ecommerce/Ecommerce";
-import Inventory from "./projects/inventory/Inventory";
-import Voting from "./projects/voting/Voting";
-import Blog from "./projects/blog/Blog";
-
+import {
+ About,
+ Blog,
+ Calculator,
+ Contact,
+ Ecommerce,
+ Experience,
+ Header,
+ Inventory,
+ MemoryGame,
+ PortfolioProject,
+ Projects,
+ Skills,
+ TodoApp,
+ Voting,
+} from "./utils";
 const App = () => {
  return (
   <Router>
@@ -42,6 +44,7 @@ const App = () => {
      <Route path="/projects/inventory" element={<Inventory />} />
      <Route path="/projects/memorygame" element={<MemoryGame />} />
      <Route path="/projects/voting" element={<Voting />} />
+     <Route path="/projects/calculator" element={<Calculator />} />
     </Routes>
    </div>
   </Router>

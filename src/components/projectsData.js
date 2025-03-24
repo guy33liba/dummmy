@@ -49,5 +49,12 @@ const projects = [
   link: "/projects/voting",
   image: "/voting.jpg",
  },
+ {
+  id: 8,
+  name: "מחשבון",
+  description: "מחשבון פשוט.",
+  link: "/projects/calculator",
+  image: "/calculator.jpg",
+ },
 ];
 export default projects;
