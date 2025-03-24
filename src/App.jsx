@@ -12,15 +12,12 @@ import MemoryGame from "./projects/memoryGame/MemoryGame";
 import Ecommerce from "./projects/ecommerce/Ecommerce";
 import Inventory from "./projects/inventory/Inventory";
 import Voting from "./projects/voting/Voting";
-import Tasks from "./projects/tasks/Tasks";
+import Blog from "./projects/blog/Blog";
 
 const App = () => {
- const [count, setCount] = useState(0);
- debugger;
  return (
   <Router>
    <div>
-    hellohello
     <Header />
     <Routes>
      {/* דף הבית */}
@@ -41,10 +38,10 @@ const App = () => {
      <Route path="/projects/portfolio" element={<PortfolioProject />} />
      <Route path="/projects/todo" element={<TodoApp />} />
      <Route path="/projects/ecommerce" element={<Ecommerce />} />
+     <Route path="/projects/blog" element={<Blog />} />
      <Route path="/projects/inventory" element={<Inventory />} />
      <Route path="/projects/memorygame" element={<MemoryGame />} />
      <Route path="/projects/voting" element={<Voting />} />
-     <Route path="/projects/tasks" element={<Tasks />} />
     </Routes>
    </div>
   </Router>

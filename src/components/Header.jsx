@@ -1,22 +1,40 @@
 import React from "react";
 import "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
  return (
   <header className="header">
-   <h1>גיא ליבה</h1>
+   <h1>
+    <Link to="/">גיא ליבה</Link>
+   </h1>
    <p>מפתח Full-Stack HTML JavaScript CSS3 React.js Vite Node.js</p>
    <nav>
     <ul>
-     <li>דף הבית</li>
-     <li>אתר פורטפוליו</li>
-     <li>אפליקציית מטלות</li>
-     <li>משחק זיכרון</li>
-     <li>מערכת ניהול מלאי</li>
-     <li>בלוג אישי</li>
-     <li>מערכת הזמנות אונליין</li>
-     <li>ניהול משימות</li>
-     <li>מערכת הצבעות</li>
+     <li>
+      <Link to="/">דף הבית</Link>
+     </li>
+     <li>
+      <Link to="/projects/portfolio">אתר פורטפוליו</Link>
+     </li>
+     <li>
+      <Link to="/projects/todo">אפליקציית מטלות</Link>
+     </li>
+     <li>
+      <Link to="/projects/memorygame">משחק הזיכרון</Link>
+     </li>
+     <li>
+      <Link to="/projects/inventory">מערכת ניהול מלאי</Link>
+     </li>
+     <li>
+      <Link to="/projects/blog">בלוג אישי</Link>
+     </li>
+     <li>
+      <Link to="/projects/ecommerce">מערכת הזמנות אונליין</Link>
+     </li>
+     <li>
+      <Link to="voting">מערכת הצבעות</Link>
+     </li>
     </ul>
    </nav>
   </header>
