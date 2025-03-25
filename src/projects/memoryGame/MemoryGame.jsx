@@ -47,10 +47,17 @@ const MemoryGame = () => {
    setChoiceOne(null);
    setChoiceTwo(null);
 
+   // הצגת כל הקלפים למשך 2 שניות
    setTimeout(() => {
-    setIsShuffling(false);
-   }, 1000);
-  }, 300);
+    setCards((prevCards) => prevCards.map((card) => ({ ...card, flipped: true })));
+
+    // הסתרת הקלפים אחרי 2 שניות
+    setTimeout(() => {
+     setCards((prevCards) => prevCards.map((card) => ({ ...card, flipped: false })));
+     setIsShuffling(false);
+    }, 2000);
+   }, 300);
+  }, 500);
  };
 
  const handleChoice = (card) => {
