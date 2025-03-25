@@ -15,9 +15,6 @@ const Header = () => {
       <Link to="/">דף הבית</Link>
      </li>
      <li>
-      <Link to="/projects/portfolio">אתר פורטפוליו</Link>
-     </li>
-     <li>
       <Link to="/projects/todo">אפליקציית מטלות</Link>
      </li>
      <li>
