@@ -1,125 +1,365 @@
-/* General Styles */
+/* TodoApp.css */
+
+/* עיצוב כללי */
+body {
+ font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+ background-color: #f5f5f5;
+ margin: 0;
+ padding: 0;
+ direction: rtl;
+}
+
 .todo-app {
  display: flex;
  justify-content: center;
- background: #f4f4f4;
+ align-items: flex-start;
+ min-height: 100vh;
+ padding: 20px;
+ background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .todo-container {
- width: 400px;
- background: white;
- padding: 20px;
- border-radius: 10px;
- box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ background-color: white;
+ border-radius: 12px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ width: 100%;
+ max-width: 600px;
+ padding: 30px;
+ transition: all 0.3s ease;
+}
+
+.todo-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 25px;
+}
+
+.todo-title {
+ color: #3a4a6d;
+ margin: 0;
+ font-size: 28px;
+}
+
+.current-time {
+ background-color: #f0f4f8;
+ padding: 8px 12px;
+ border-radius: 6px;
+ font-size: 14px;
+ color: #5a6b8c;
  text-align: center;
 }
 
-/* Titles */
-.todo-title {
- font-size: 24px;
- color: #333;
- margin-bottom: 10px;
+/* חיפוש */
+.search-container {
+ margin-bottom: 20px;
 }
 
-.todo-subtitle {
- font-size: 18px;
- color: #666;
- margin-top: 15px;
+.search-input {
+ width: 97%;
+ padding-right: 10px;
+ height: 40px;
+ border: 2px solid #e0e6ed;
+ border-radius: 8px;
+ font-size: 16px;
+ transition: all 0.3s ease;
 }
 
-/* Input and Buttons */
+.search-input:focus {
+ outline: none;
+ border-color: #5a6b8c;
+ box-shadow: 0 0 0 3px rgba(90, 107, 140, 0.2);
+}
+
+/* קלט והוספה */
 .todo-input-group {
+ display: flex;
+ margin-bottom: 20px;
+ gap: 10px;
+}
+
+.todo-input {
+ flex: 1;
+ padding: 12px 15px;
+ border: 2px solid #e0e6ed;
+ border-radius: 8px;
+ font-size: 16px;
+ transition: all 0.3s ease;
+}
+
+.todo-input:focus {
+ outline: none;
+ border-color: #5a6b8c;
+ box-shadow: 0 0 0 3px rgba(90, 107, 140, 0.2);
+}
+
+.priority-select {
+ padding: 0 10px;
+ border-radius: 6px;
+ border: 2px solid #e0e6ed;
+ background-color: white;
+ cursor: pointer;
+}
+
+.priority-select:focus {
+ outline: none;
+ border-color: #5a6b8c;
+}
+
+.todo-add-btn {
+ background-color: #4a6baf;
+ color: white;
+ border: none;
+ border-radius: 8px;
+ padding: 0 20px;
+ cursor: pointer;
+ font-size: 16px;
+ font-weight: 500;
+ transition: all 0.3s ease;
+}
+
+.todo-add-btn:hover {
+ background-color: #3a5a9f;
+ transform: translateY(-2px);
+}
+
+.todo-add-btn:active {
+ transform: translateY(0);
+}
+
+/* פילטרים */
+.todo-filters {
  display: flex;
  gap: 10px;
  margin-bottom: 20px;
 }
 
-.todo-input,
-.edit-input {
- flex: 1;
- padding: 10px;
- border: 2px solid #ddd;
- border-radius: 5px;
- font-size: 16px;
-}
-
-.todo-add-btn {
- background: #28a745;
- color: white;
+.filter-btn {
+ background-color: #f0f4f8;
  border: none;
- padding: 10px 15px;
- border-radius: 5px;
+ border-radius: 6px;
+ padding: 8px 15px;
  cursor: pointer;
+ font-size: 14px;
+ transition: all 0.2s ease;
 }
 
-.todo-add-btn:hover {
- background: #218838;
+.filter-btn:hover {
+ background-color: #e0e6ed;
 }
 
-/* Todo List */
+.filter-btn.active {
+ background-color: #4a6baf;
+ color: white;
+}
+
+/* סטטיסטיקות */
+.todo-stats {
+ display: flex;
+ justify-content: space-around;
+ background-color: #f8fafc;
+ padding: 10px;
+ border-radius: 8px;
+ margin-bottom: 20px;
+ font-size: 14px;
+ color: #5a6b8c;
+}
+
+/* רשימת משימות */
 .todo-list {
- margin-top: 10px;
+ max-height: 500px;
+ overflow-y: auto;
+ padding-right: 5px;
+}
+
+.empty-state {
+ text-align: center;
+ padding: 30px;
+ color: #9aa5b8;
 }
 
 .todo-item {
- background: #fff;
- padding: 10px;
- border-radius: 5px;
- box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- margin-bottom: 10px;
- display: flex;
- justify-content: space-between;
- align-items: center;
+ background-color: white;
+ border-radius: 8px;
+ padding: 15px;
+ margin-bottom: 15px;
+ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+ transition: all 0.3s ease;
+ border-left: 4px solid #4a6baf;
 }
 
-/* Edit Mode */
-.edit-container {
+.todo-item.completed {
+ opacity: 0.8;
+ border-left-color: #a0b3d8;
+}
+
+.todo-item.completed .todo-text {
+ text-decoration: line-through;
+ color: #9aa5b8;
+}
+
+.todo-item:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.todo-content {
  display: flex;
- width: 100%;
+ align-items: flex-start;
+ gap: 15px;
+}
+
+.todo-checkbox {
+ margin-top: 3px;
+ cursor: pointer;
+ transform: scale(1.2);
+}
+
+.todo-text-container {
+ flex: 1;
+}
+
+.todo-text {
+ margin: 0 0 5px 0;
+ color: #3a4a6d;
+ font-size: 16px;
+ word-break: break-word;
+}
+
+.todo-meta {
+ display: flex;
+ align-items: center;
  gap: 10px;
 }
 
-.save-btn {
- background: #007bff;
+.todo-date {
+ color: #9aa5b8;
+ font-size: 12px;
+}
+
+.priority-badge {
  color: white;
- border: none;
- padding: 10px;
- border-radius: 5px;
- cursor: pointer;
+ font-size: 11px;
+ padding: 2px 8px;
+ border-radius: 10px;
 }
 
-.save-btn:hover {
- background: #0056b3;
-}
-
-/* Buttons */
 .todo-actions {
  display: flex;
- gap: 10px;
+ gap: 8px;
+ margin-top: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+ padding: 6px 12px;
+ border: none;
+ border-radius: 6px;
+ font-size: 14px;
+ cursor: pointer;
+ transition: all 0.2s ease;
 }
 
 .edit-btn {
- background: #ffc107;
- color: white;
- border: none;
- padding: 5px 10px;
- border-radius: 5px;
- cursor: pointer;
+ background-color: #f0f4f8;
+ color: #5a6b8c;
 }
 
 .edit-btn:hover {
- background: #e0a800;
+ background-color: #e0e6ed;
 }
 
 .delete-btn {
- background: #dc3545;
- color: white;
- border: none;
- padding: 5px 10px;
- border-radius: 5px;
- cursor: pointer;
+ background-color: #fff0f0;
+ color: #d45d5d;
 }
 
 .delete-btn:hover {
- background: #c82333;
+ background-color: #ffe0e0;
+}
+
+/* עריכת משימה */
+.edit-container {
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+
+.edit-input {
+ padding: 12px 15px;
+ border: 2px solid #e0e6ed;
+ border-radius: 8px;
+ font-size: 16px;
+ width: 100%;
+}
+
+.edit-input:focus {
+ outline: none;
+ border-color: #5a6b8c;
+}
+
+.edit-actions {
+ display: flex;
+ gap: 10px;
+}
+
+.save-btn,
+.cancel-btn {
+ padding: 8px 15px;
+ border: none;
+ border-radius: 6px;
+ font-size: 14px;
+ cursor: pointer;
+ transition: all 0.2s ease;
+}
+
+.save-btn {
+ background-color: #4caf50;
+ color: white;
+}
+
+.save-btn:hover {
+ background-color: #3e8e41;
+}
+
+.cancel-btn {
+ background-color: #f0f4f8;
+ color: #5a6b8c;
+}
+
+.cancel-btn:hover {
+ background-color: #e0e6ed;
+}
+
+/* גלילה */
+.todo-list::-webkit-scrollbar {
+ width: 8px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+ background: #f1f1f1;
+ border-radius: 10px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+ background: #c1c1c1;
+ border-radius: 10px;
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover {
+ background: #a8a8a8;
+}
+
+/* אנימציות */
+@keyframes fadeIn {
+ from {
+  opacity: 0;
+ }
+ to {
+  opacity: 1;
+ }
+}
+
+.fade-in {
+ animation: fadeIn 0.5s ease-in;
 }
