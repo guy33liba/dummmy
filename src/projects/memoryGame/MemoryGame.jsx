@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./MemoryGame.css";
 
 // ייבוא תמונות
@@ -30,6 +30,15 @@ const MemoryGame = () => {
  const [isRunning, setIsRunning] = useState(false);
  const [isShuffling, setIsShuffling] = useState(false);
 
+ const flipAudio = useRef(new Audio("/sounds/flip.mp3"));
+ const matchAudio = useRef(new Audio("/sounds/match.mp3"));
+ const winAudio = useRef(new Audio("/sounds/win.mp3"));
+ const shuffleAudio = useRef(new Audio("/sounds/shuffle.mp3"));
+
+ const playAudio = (audioRef) => {
+  audioRef.current.currenTime = 0;
+  audioRef.current.play().catch((e) => console.log("Audio play Error:", e));
+ };
  const shuffleCards = () => {
   setIsShuffling(true);
   setCards([]);
@@ -50,6 +59,7 @@ const MemoryGame = () => {
    // הצגת כל הקלפים למשך 2 שניות
    setTimeout(() => {
     setCards((prevCards) => prevCards.map((card) => ({ ...card, flipped: true })));
+    playAudio(flipAudio);
 
     // הסתרת הקלפים אחרי 2 שניות
     setTimeout(() => {
@@ -77,7 +87,9 @@ const MemoryGame = () => {
   if (choiceOne && choiceTwo) {
    setDisabled(true);
    const isMatch = choiceOne.name === choiceTwo.name;
-
+   if (isMatch) {
+    playAudio(matchAudio);
+   }
    setTimeout(
     () => {
      setCards((prevCards) =>
