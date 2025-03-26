@@ -27,9 +27,6 @@ const Header = () => {
       <Link to="/projects/blog">בלוג אישי</Link>
      </li>
      <li>
-      <Link to="/projects/ecommerce">מערכת הזמנות אונליין</Link>
-     </li>
-     <li>
       <Link to="/projects/voting">מערכת הצבעות</Link>
      </li>
      <li>

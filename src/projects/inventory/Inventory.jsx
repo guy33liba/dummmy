@@ -9,16 +9,25 @@ const Inventory = () => {
  const [category, setCategory] = useState("");
  const [editingId, setEditingId] = useState(null);
  const [searchTerm, setSearchTerm] = useState("");
-
+ const [isLoaded, setIsLoaded] = useState(false);
  useEffect(() => {
-  const savedProducts = localStorage.getItem("inventory");
-  if (savedProducts) {
+  try {
+   const savedProducts = localStorage.getItem("inventory");
    setProducts(JSON.parse(savedProducts));
+   setIsLoaded(true);
+  } catch (error) {
+   console.log("Load Error", error);
   }
  }, []);
 
  useEffect(() => {
-  localStorage.setItem("inventory", JSON.stringify(products));
+  if (isLoaded && products.length >= 0) {
+   try {
+    localStorage.setItem("inventory", JSON.stringify(products));
+   } catch (error) {
+    console.error("Save Error", error);
+   }
+  }
  }, [products]);
 
  const handleSubmit = (e) => {

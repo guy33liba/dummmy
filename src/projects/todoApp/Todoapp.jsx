@@ -2,52 +2,64 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./TodoApp.css";
 
-const useLocalStorage = (key, initialValue) => {
- const [storedValue, setStoredValue] = useState(() => {
-  try {
-   if (typeof window === "undefined") {
-    return initialValue;
-   }
-   const item = window.localStorage.getItem(key);
-   return item ? JSON.parse(item) : initialValue;
-  } catch (error) {
-   console.error("Error reading from localStorage:", error);
-   return initialValue;
-  }
- });
+// const useLocalStorage = (key, initialValue) => {
+//  const [storedValue, setStoredValue] = useState(() => {
+//   try {
+//    if (typeof window === "undefined") {
+//     return initialValue;
+//    }
+//    const item = window.localStorage.getItem(key);
+//    return item ? JSON.parse(item) : initialValue;
+//   } catch (error) {
+//    console.error("Error reading from localStorage:", error);
+//    return initialValue;
+//   }
+//  });
 
- const setValue = (value) => {
-  try {
-   const valueToStore = value instanceof Function ? value(storedValue) : value;
-   setStoredValue(valueToStore);
-   if (typeof window !== "undefined") {
-    window.localStorage.setItem(key, JSON.stringify(valueToStore));
-   }
-  } catch (error) {
-   console.error("Error writing to localStorage:", error);
-  }
- };
+//  const setValue = (value) => {
+//   try {
+//    const valueToStore = value instanceof Function ? value(storedValue) : value;
+//    setStoredValue(valueToStore);
+//    if (typeof window !== "undefined") {
+//     window.localStorage.setItem(key, JSON.stringify(valueToStore));
+//    }
+//   } catch (error) {
+//    console.error("Error writing to localStorage:", error);
+//   }
+//  };
 
- return [storedValue, setValue];
-};
+//  return [storedValue, setValue];
+// };
 const TodoApp = () => {
- const [todos, setTodos] = useLocalStorage("todo", []);
+ //  const [todos, setTodos] = useLocalStorage("todo", []);
+ const [todos, setTodos] = useState([]);
  const [input, setInput] = useState("");
  const [editInput, setEditInput] = useState("");
  const [currentTime, setCurrentTime] = useState(new Date());
  const [filter, setFilter] = useState("all");
  const [priority, setPriority] = useState("medium");
  const [searchTerm, setSearchTerm] = useState("");
+ const [isLoaded, setIsLoaded] = useState(false);
 
  // טעינת משימות מה-localStorage
  useEffect(() => {
-  const savedTodos = localStorage.getItem("todos");
-  if (savedTodos) setTodos(JSON.parse(savedTodos));
+  try {
+   const savedTodos = localStorage.getItem("todos");
+   setIsLoaded(true);
+   if (savedTodos) setTodos(JSON.parse(savedTodos));
+  } catch (error) {
+   console.log("local storage", error);
+  }
  }, []);
 
  // שמירת משימות ב-localStorage
  useEffect(() => {
-  localStorage.setItem("todos", JSON.stringify(todos));
+  if (isLoaded && todos.length >= 0)
+   try {
+    localStorage.setItem("todos", JSON.stringify(todos));
+   } catch (error) {
+    console.log("local storage ", error);
+   }
  }, [todos]);
 
  // עדכון השעה כל שנייה
@@ -126,7 +138,9 @@ const TodoApp = () => {
     return "#4a6baf";
   }
  };
-
+ const clearCompleted = () => {
+  setTodos(todos.filter((todo) => !todo.completed));
+ };
  return (
   <div className="todo-app">
    <div className="todo-container">
@@ -284,6 +298,11 @@ const TodoApp = () => {
      </AnimatePresence>
     </div>
    </div>
+   {todos.length > 0 && (
+    <button className="allClearBtn" onClick={clearCompleted}>
+     מחק הכל
+    </button>
+   )}
   </div>
  );
 };

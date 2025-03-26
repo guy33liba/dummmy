@@ -5,12 +5,10 @@ import {
  Blog,
  Calculator,
  Contact,
- Ecommerce,
  Experience,
  Header,
  Inventory,
  MemoryGame,
- PortfolioProject,
  Projects,
  Skills,
  TodoApp,
@@ -37,9 +35,7 @@ const App = () => {
      />
 
      {/* דפי הפרויקטים */}
-     <Route path="/projects/portfolio" element={<PortfolioProject />} />
      <Route path="/projects/todo" element={<TodoApp />} />
-     <Route path="/projects/ecommerce" element={<Ecommerce />} />
      <Route path="/projects/blog" element={<Blog />} />
      <Route path="/projects/inventory" element={<Inventory />} />
      <Route path="/projects/memorygame" element={<MemoryGame />} />
