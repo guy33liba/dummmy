@@ -35,6 +35,8 @@
 
 .inventory-container .products-list {
  flex: 2;
+ position: relative;
+ bottom: 140px;
 }
 
 .inventory-container .form-group {
