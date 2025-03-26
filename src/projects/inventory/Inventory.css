@@ -1,0 +1,123 @@
+/* Inventory.css - Scoped to inventory-container only */
+.inventory-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 20px;
+ font-family: Arial, sans-serif;
+}
+
+.inventory-container .search-container {
+ margin-bottom: 20px;
+}
+
+.inventory-container .search-container input {
+ padding-right: 10px;
+ height: 30px;
+ border: 1px solid #ddd;
+ border-radius: 4px;
+
+ width: 390px;
+ font-size: 15px;
+}
+
+.inventory-container .inventory-layout {
+ display: flex;
+ gap: 50px;
+}
+
+.inventory-container .inventory-form {
+ flex: 1;
+ background: #f5f5f5;
+ padding: 20px;
+ border-radius: 8px;
+ min-width: 300px;
+}
+
+.inventory-container .products-list {
+ flex: 2;
+}
+
+.inventory-container .form-group {
+ margin-bottom: 15px;
+}
+
+.inventory-container .form-group label {
+ display: block;
+ margin-bottom: 5px;
+ font-weight: bold;
+}
+
+.inventory-container .form-group input {
+ width: 100%;
+ padding: 8px;
+ border: 1px solid #ddd;
+ border-radius: 4px;
+}
+
+.inventory-container .form-actions {
+ display: flex;
+ gap: 10px;
+ margin-top: 20px;
+}
+
+.inventory-container button {
+ padding: 8px 15px;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+}
+
+.inventory-container .submit-btn {
+ background-color: #4caf50;
+ color: white;
+}
+
+.inventory-container .cancel-btn {
+ background-color: #f44336;
+ color: white;
+}
+
+.inventory-container .edit-btn {
+ background-color: #2196f3;
+ color: white;
+}
+
+.inventory-container .delete-btn {
+ background-color: #f44336;
+ color: white;
+}
+
+.inventory-container .products-list table {
+ width: 100%;
+ border-collapse: collapse;
+}
+
+.inventory-container .products-list th,
+.inventory-container .products-list td {
+ border: 1px solid #ddd;
+ padding: 12px;
+ text-align: left;
+}
+
+.inventory-container .products-list th {
+ background-color: #f2f2f2;
+}
+
+.inventory-container .products-list tr:nth-child(even) {
+ background-color: #f9f9f9;
+}
+
+.inventory-container .products-list tr:hover {
+ background-color: #f1f1f1;
+}
+
+.inventory-container .actions {
+ display: flex;
+ gap: 10px;
+}
+
+@media (max-width: 768px) {
+ .inventory-container .inventory-layout {
+  flex-direction: column;
+ }
+}
