@@ -20,7 +20,6 @@ const App = () => {
    <div>
     <Header />
     <Routes>
-     {/* דף הבית */}
      <Route
       path="/"
       element={
@@ -34,7 +33,6 @@ const App = () => {
       }
      />
 
-     {/* דפי הפרויקטים */}
      <Route path="/projects/todo" element={<TodoApp />} />
      <Route path="/projects/blog" element={<Blog />} />
      <Route path="/projects/inventory" element={<Inventory />} />
