@@ -10,6 +10,11 @@ import shield from "/images/shield.png";
 import sword from "/images/sword.png";
 import cardBack from "/images/background.png";
 
+import flipSound from "../../sounds/flip.mp3";
+import matchSound from "../../sounds/match.mp3";
+import winSound from "../../sounds/win.mp3";
+import shuffleSound from "../../sounds/shuffle.mp3";
+
 const cardImages = [
  { src: ring, name: "ring" },
  { src: helmet, name: "helmet" },
@@ -30,14 +35,22 @@ const MemoryGame = () => {
  const [isRunning, setIsRunning] = useState(false);
  const [isShuffling, setIsShuffling] = useState(false);
 
- const flipAudio = useRef(new Audio("/sounds/flip.mp3"));
- const matchAudio = useRef(new Audio("/sounds/match.mp3"));
- const winAudio = useRef(new Audio("/sounds/win.mp3"));
- const shuffleAudio = useRef(new Audio("/sounds/shuffle.mp3"));
+ const flipAudio = useRef(new Audio(flipSound));
+ const matchAudio = useRef(new Audio(matchSound));
+ const winAudio = useRef(new Audio(winSound));
+ const shuffleAudio = useRef(new Audio(shuffleSound));
 
  const playAudio = (audioRef) => {
-  audioRef.current.currenTime = 0;
-  audioRef.current.play().catch((e) => console.log("Audio play Error:", e));
+  try {
+   audioRef.current.currentTime = 0;
+   audioRef.current.play().catch((e) => {
+    console.error("Audio blocked:", e);
+    // Fallback: Force play by user interaction
+    document.body.addEventListener("click", () => audioRef.current.play(), { once: true });
+   });
+  } catch (e) {
+   console.error("Audio error:", e);
+  }
  };
  const shuffleCards = () => {
   setIsShuffling(true);
@@ -48,7 +61,7 @@ const MemoryGame = () => {
    const shuffledCards = [...cardImages, ...cardImages]
     .map((card, index) => ({ ...card, id: index, matched: false, flipped: false }))
     .sort(() => Math.random() - 0.5);
-
+   playAudio(shuffleAudio);
    setCards(shuffledCards);
    setTurns(0);
    setTimer(0);
@@ -178,6 +191,12 @@ const MemoryGame = () => {
       </div>
      </div>
     ))}
+   </div>
+   <div>
+    <button onClick={() => playAudio(flipAudio)}>Play Flip Sound</button>
+    <button onClick={() => playAudio(winAudio)}>Play Win Sound</button>
+    <button onClick={() => playAudio(shuffleAudio)}>Play shuffleAudio Sound</button>
+    <button onClick={() => playAudio(matchAudio)}>Play matchAudio Sound</button>
    </div>
   </div>
  );
