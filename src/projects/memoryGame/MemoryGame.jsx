@@ -115,7 +115,10 @@ const MemoryGame = () => {
  useEffect(() => {
   if (cards.length > 0 && cards.every((card) => card.matched)) {
    setIsRunning(false);
-   setTimeout(() => setGameWon(true), 500);
+   setTimeout(() => {
+    setGameWon(true);
+    playAudio(winAudio);
+   }, 500);
   }
  }, [cards]);
 
