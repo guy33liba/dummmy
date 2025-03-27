@@ -155,7 +155,7 @@ const Blog = () => {
       <div className="empty-state">
        <div className="empty-icon">✍️</div>
        <h3>No Posts Yet</h3>
-       <p>Write your first post to get started!</p>
+       <p>Write your first post to get started !</p>
       </div>
      )}
     </section>

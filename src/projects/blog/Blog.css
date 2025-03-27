@@ -223,6 +223,7 @@ body {
  padding: 3rem;
  background: white;
  border-radius: var(--border-radius);
+ direction: ltr;
  box-shadow: var(--box-shadow);
 }
 
